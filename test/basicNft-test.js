@@ -2,7 +2,6 @@ const { assert } = require("chai")
 const { network, deployments, ethers } = require("hardhat")
 const { developmentChains } = require("../helper-hardhat-config")
 
-//writing the test code from here..
 
 !developmentChains.includes(network.name)
     ? describe.skip
@@ -16,7 +15,7 @@ const { developmentChains } = require("../helper-hardhat-config")
               basicNft = await ethers.getContract("BasicNft")
           })
 
-          //test01
+          //first test
           describe("Construtor", () => {
               it("Initializes the NFT Correctly.", async () => {
                   const name = await basicNft.name()
@@ -27,7 +26,7 @@ const { developmentChains } = require("../helper-hardhat-config")
                   assert.equal(tokenCounter.toString(), "0")
               })
           })
-          //test02
+          //Second test
           describe("Mint NFT", () => {
               beforeEach(async () => {
                   const txResponse = await basicNft.mintNft()
